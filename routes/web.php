@@ -49,6 +49,7 @@ Route::get('/home', function () {
     ];
 
     return view('home', [
+        'title' => 'Home',
         'user' => "Yadi",
         'usia' => 18,
         'isMember' => true,
@@ -59,4 +60,10 @@ Route::get('/home', function () {
 
 Route::get('/login', function () {
     return view('login');
+});
+
+Route::get('/about', function () {
+    return view('about', [
+        'title' => 'About',
+    ]);
 });
