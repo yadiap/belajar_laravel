@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,8 +23,6 @@ Route::get('/', function () {
 
 Route::get('/home',[HomeController::class, 'index'] );
 
-Route::get('/login', function () {
-    return view('login');
-});
-
 Route::get('/about', [AboutController::class, 'index']);
+Route::get('/login', [AuthController::class, 'indexLogin']);
+Route::get('/register', [AuthController::class, 'indexRegister']);
