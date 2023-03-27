@@ -103,6 +103,7 @@
                     <th scope="col">Nim</th>
                     <th scope="col">Nilai</th>
                     <th scope="col">Grade</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -124,6 +125,9 @@
                                     C                                        
                             @endswitch
                             
+                        </td>
+                        <td>
+                            <a class="btn btn-secondary" href="/detail/{{$data['id']}}">Detail</a>
                         </td>
                     </tr>
                 @endforeach
