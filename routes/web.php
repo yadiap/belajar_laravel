@@ -22,7 +22,12 @@ Route::get('/', function () {
 
 
 Route::get('/home',[HomeController::class, 'index'] );
-Route::get('/detail/{id}',[HomeController::class, 'detail'] );
+
+Route::get('/daftar_mahasiswa',[HomeController::class, 'daftar_mahasiswa'] );
+Route::get('/detail_mahasiswa/{id}',[HomeController::class, 'detail_mahasiswa'] );
+Route::get('/daftar_tutor',[HomeController::class, 'daftar_tutor'] );
+Route::get('/detail_tutor/{id}',[HomeController::class, 'detail_tutor'] );
+
 
 Route::get('/about', [AboutController::class, 'index']);
 Route::get('/login', [AuthController::class, 'indexLogin']);

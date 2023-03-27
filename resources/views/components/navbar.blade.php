@@ -15,6 +15,12 @@
                     <li class="nav-item">
                         <a class="nav-link {{$title === 'About' ? 'active' : ''}}" aria-current="page" href="/about">About</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{$title === 'Data Mahasiswa' ? 'active' : ''}}" aria-current="page" href="/daftar_mahasiswa">Data Mahasiswa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{$title === 'Data Tutor' ? 'active' : ''}}" aria-current="page" href="/daftar_tutor">Data Tutor</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav  mb-2 mb-lg-0">
                     <li class="nav-item">
