@@ -65,6 +65,12 @@ class Mahasiswa
 
     public static function all()
     {
-        return self::$list_mahasiswa;
+        return collect(self::$list_mahasiswa);
+    }
+
+    public static function find($id) 
+    {
+        $list_mahasiswa = self::all();
+        return $list_mahasiswa->firstWhere('id', $id);
     }
 }

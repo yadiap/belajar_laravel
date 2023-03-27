@@ -22,6 +22,7 @@ Route::get('/', function () {
 
 
 Route::get('/home',[HomeController::class, 'index'] );
+Route::get('/detail/{id}',[HomeController::class, 'detail'] );
 
 Route::get('/about', [AboutController::class, 'index']);
 Route::get('/login', [AuthController::class, 'indexLogin']);

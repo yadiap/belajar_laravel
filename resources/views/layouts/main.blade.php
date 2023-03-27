@@ -18,10 +18,14 @@
     
   </header>
   <main>
-    @yield('content')
+    <div class="container mt-4">
+      @yield('content')
+    </div>
   </main>
   <footer>
     <!-- place footer here -->
+    <div class="fixed-bottom text-center">This is footer</div>
+
   </footer>
  
 
