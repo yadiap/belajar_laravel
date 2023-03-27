@@ -127,7 +127,7 @@
                             
                         </td>
                         <td>
-                            <a class="btn btn-secondary" href="/detail/{{$data['id']}}">Detail</a>
+                            <x-button-link url="/detail/{{$data['id']}}" text="Detail" color="secondary" />
                         </td>
                     </tr>
                 @endforeach
