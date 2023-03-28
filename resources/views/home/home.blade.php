@@ -127,7 +127,7 @@
                             
                         </td>
                         <td>
-                            <x-button-link url="/detail/{{$data['id']}}" text="Detail" color="secondary" />
+                            <x-button-link url="/detail_mahasiswa/{{$data['id']}}" text="Detail" color="secondary" />
                         </td>
                     </tr>
                 @endforeach
