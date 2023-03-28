@@ -21,12 +21,14 @@ Route::get('/', function () {
 });
 
 
-Route::get('/home',[HomeController::class, 'index'] );
 
-Route::get('/daftar_mahasiswa',[HomeController::class, 'daftar_mahasiswa'] );
-Route::get('/detail_mahasiswa/{id}',[HomeController::class, 'detail_mahasiswa'] );
-Route::get('/daftar_tutor',[HomeController::class, 'daftar_tutor'] );
-Route::get('/detail_tutor/{id}',[HomeController::class, 'detail_tutor'] );
+Route::controller(HomeController::class)->group(function (){
+    Route::get('/home','index');
+    Route::get('/daftar_mahasiswa', 'daftar_mahasiswa');
+    Route::get('/detail_mahasiswa/{id}','detail_mahasiswa' );
+    Route::get('/daftar_tutor', 'daftar_tutor' );
+    Route::get('/detail_tutor/{id}', 'detail_tutor' );
+});
 
 
 Route::get('/about', [AboutController::class, 'index']);

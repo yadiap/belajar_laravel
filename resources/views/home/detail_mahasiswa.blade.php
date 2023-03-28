@@ -24,7 +24,7 @@
     Gender
   </div>
   <div class="col">
-    {{ ($data_mahasiswa['personal']['gender'] == 0 ? "Laki-laki" : "Perempuan") }}
+    {{ ($data_mahasiswa['gender'] == 0 ? "Laki-laki" : "Perempuan") }}
   </div>
 </div>
 <div class="row">
@@ -32,7 +32,7 @@
     Usia
   </div>
   <div class="col">
-    {{ $data_mahasiswa['personal']['usia'] }}
+    {{ $data_mahasiswa['usia'] }}
   </div>
 </div>
 <div class="row">
@@ -40,7 +40,7 @@
     Alamat
   </div>
   <div class="col">
-    {{ $data_mahasiswa['personal']['alamat'] }}
+    {{ $data_mahasiswa['alamat'] }}
   </div>
 </div>
 <div class="mt-2">

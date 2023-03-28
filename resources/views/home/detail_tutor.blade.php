@@ -24,7 +24,7 @@
     Gender
   </div>
   <div class="col">
-    {{ ($data['gender'] == 0 ? "Laki-laki" : "Perempuan") }}
+    {{ $data['gender'] }}
   </div>
 </div>
 <div class="row">

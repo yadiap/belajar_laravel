@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <header>
+  <header class="sticky-top" >
     <x-navbar :$title />
     
   </header>
@@ -22,9 +22,9 @@
       @yield('content')
     </div>
   </main>
-  <footer>
+  <footer">
     <!-- place footer here -->
-    <div class="fixed-bottom text-center">This is footer</div>
+    <div class="fixed-bottom text-center bg-black text-white">This is footer</div>
 
   </footer>
  
