@@ -75,25 +75,32 @@
 <body class="text-center">
   
 <main class="form-signin w-100 m-auto">
-<form>
+<form action="/register" method="POST">
+  @csrf
   <img class="mb-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpaqBJzhY1_nTTwxTuN803wI-DC4OXjXqPx3UFc0XlERNGQ8HwXImt1jpsE_Z7UT-GxfY" alt="" width="72" height="57">
   <h1 class="h3 mb-3 fw-normal">Register account</h1>
 
   <div class="form-floating">
-    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-    <label for="floatingInput">Email address</label>
+    <input type="text" class="form-control @error ('nama') is-invalid @enderror" id="nama" placeholder="Masukkan nama anda" name="name" value="{{old('name')}}">
+    <label for="nama">  Nama @error ('nama') {{ $message }} @enderror </label>
   </div>
   <div class="form-floating">
-    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-    <label for="floatingPassword">Password</label>
+    <input type="email" class="form-control @error ('email') is-invalid @enderror" id="email" placeholder="Masukkan email anda : name@example.com" name="email" value="{{ old('email') }}">
+    <label for="email">Email address @error ('email') {{ $message }} @enderror </label>
   </div>
+
   <div class="form-floating">
-    <input type="password" class="form-control" id="floatingConfirmPassword" placeholder="Password">
-    <label for="floatingPassword">Confirm Password</label>
+    <input type="password" class="form-control @error ('password') is-invalid @enderror" id="password" placeholder="Password" name="password">
+    <label for="password">Password @error ('password') {{ $message }} @enderror </label>
+  </div>
+
+  <div class="form-floating">
+    <input type="password" class="form-control @error ('password_confirmation') is-invalid @enderror" id="confirm_password" placeholder="Password" name="password_confirmation">
+    <label for="confirm_password">Confirm Password @error ('password_confirmation') {{ $message }} @enderror</label>
   </div>
 
 
-  <a class="w-100 btn btn-lg btn-primary" type="submit" href="/home">Register</a>
+  <x-button class="mt-2 w-100 btn-lg" type="submit" text="Buat Akun" />
   <a class="mt-2 w-100 btn btn-lg btn-primary" type="submit" href="/login">Login</a>
   <a class="mt-2 w-100 btn btn-lg btn-primary" type="submit" href="/home">Kembali ke Home</a>
   <p class="mt-5 mb-3 text-muted">© 2017–2022</p>

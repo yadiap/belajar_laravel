@@ -32,5 +32,11 @@ Route::controller(HomeController::class)->group(function (){
 
 
 Route::get('/about', [AboutController::class, 'index']);
-Route::get('/login', [AuthController::class, 'indexLogin']);
-Route::get('/register', [AuthController::class, 'indexRegister']);
+
+Route::controller(AuthController::class)->group(function (){
+    Route::get('/login',  'indexLogin');
+    Route::post('/login',  'storeLogin');
+    Route::post('/logout',  'storeLogout');
+    Route::get('/register','indexRegister');
+    Route::post('/register',  'storeRegister');
+});

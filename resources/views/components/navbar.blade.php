@@ -29,6 +29,12 @@
                     <li class="nav-item">
                         <a class="btn nav-link {{$title === 'Login' ? 'active' : ''}}" aria-current="page" href="/login">Login</a>
                     </li>
+                    <li class="nav-item">
+                        <form action="/logout" method="POST"> 
+                            @csrf
+                            <x-button type="submit" text="Logout"/>
+                        </form>
+                    </li>
                 </ul>
             </div>
         </div>
