@@ -22,7 +22,11 @@
                 <td>
                     <x-button-link url="/detail_mahasiswa/{{$data['id']}}" text="Detail" color="secondary" />
                     <x-button-link url="/edit_mahasiswa/{{$data['id']}}" text="Edit" color="warning" />
-                    <x-button-link url="/hapus_mahasiswa" text="Hapus" color="danger" />
+                    <form action="/hapus_mahasiswa/{{$data['id']}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                    <x-button type="submit" text="Hapus" color="danger" />
+                    </form>
                 </td>
             </tr>
         @endforeach

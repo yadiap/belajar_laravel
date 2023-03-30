@@ -89,6 +89,14 @@ class HomeController extends Controller
         return redirect('/daftar_mahasiswa');
     }
 
+    public function hapus_mahasiswa($id)
+    {
+        $data = Mahasiswa::find($id);  
+        $data->delete();
+
+        return redirect('/daftar_mahasiswa');
+    }
+
     public function daftar_tutor()
     {
         return view('home.daftar_tutor', [
