@@ -2,6 +2,8 @@
 
 @section('content')
   <H1>{{ $title}}</H1>
+
+  <x-button-link url="/tambah_mahasiswa" text="Tambah" color="secondary" />
   <table class="table">
     <thead>
         <tr>
@@ -19,6 +21,8 @@
                 <td>{{ $data['nim'] }}</td>
                 <td>
                     <x-button-link url="/detail_mahasiswa/{{$data['id']}}" text="Detail" color="secondary" />
+                    <x-button-link url="/tambah_mahasiswa" text="Edit" color="secondary" />
+                    <x-button-link url="/hapus_mahasiswa" text="Hapus" color="danger" />
                 </td>
             </tr>
         @endforeach

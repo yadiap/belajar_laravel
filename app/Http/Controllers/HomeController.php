@@ -34,6 +34,35 @@ class HomeController extends Controller
             'data_mahasiswa' => Mahasiswa::find($request->id),
         ]);
     }
+    public function tambah_mahasiswa(Request $request)
+    {
+        return view('home.form_mahasiswa', [
+            'title' => 'Edit Mahasiswa',
+        ]);
+    }
+    public function simpan_tambah_mahasiswa(Request $request)
+    {
+        // dd($request->all());
+        $validateData = $request->validate([
+            'nama' => 'required',
+            'nim' => 'required',
+            'gender' => 'required',
+            'nilai' => 'required',
+            'usia' => 'required',
+            'alamat' => 'required',
+        ], [
+            'nama.required' => 'tidak boleh kosong',
+            'nim.required' => 'tidak boleh kosong',
+            'gender.required' => 'tidak boleh kosong',
+            'nilai.required' => 'tidak boleh kosong',
+            'usia.required' => 'tidak boleh kosong',
+            'alamat.required' => 'tidak boleh kosong',
+        ]);
+
+        Mahasiswa::create($validateData);
+
+        return redirect('/daftar_mahasiswa');
+    }
 
     public function daftar_tutor()
     {
