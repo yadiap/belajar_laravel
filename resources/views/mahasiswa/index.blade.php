@@ -3,7 +3,7 @@
 @section('content')
   <H1>{{ $title}}</H1>
 
-  <x-button-link url="/tambah_mahasiswa" text="Tambah" color="secondary" />
+  <x-button-link url="/mahasiswa/create" text="Tambah" color="secondary" />
   <table class="table">
     <thead>
         <tr>
@@ -20,11 +20,11 @@
                 <td>{{ $data['nama'] }}</td>
                 <td>{{ $data['nim'] }}</td>
                 <td>
-                    <form action="/hapus_mahasiswa/{{$data['id']}}" method="POST">
+                    <form action="/mahasiswa/{{$data['id']}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <x-button-link url="/detail_mahasiswa/{{$data['id']}}" text="Detail" color="secondary" />
-                        <x-button-link url="/edit_mahasiswa/{{$data['id']}}" text="Edit" color="warning" />
+                        <x-button-link url="/mahasiswa/{{$data['id']}}" text="Detail" color="secondary" />
+                        <x-button-link url="/mahasiswa/{{$data['id']}}/edit" text="Edit" color="warning" />
                         <x-button type="submit" text="Hapus" color="danger" />
                     </form>
                 </td>

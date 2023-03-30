@@ -44,6 +44,6 @@
   </div>
 </div>
 <div class="mt-2">
-  <x-button-link url='/home' text="Kembali ke Home" />
+  <x-button-link url='/mahasiswa' text="Kembali ke daftar" />
 </div>
 @endsection

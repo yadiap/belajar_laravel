@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MahasiswaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,16 +21,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('mahasiswa', MahasiswaController::class)->middleware('auth');
+
 Route::controller(HomeController::class)->group(function (){
     Route::get('/home','index');
-    Route::get('/daftar_mahasiswa', 'daftar_mahasiswa')->middleware('auth');
-    Route::get('/detail_mahasiswa/{id}','detail_mahasiswa');
-    Route::get('/tambah_mahasiswa','tambah_mahasiswa');
-    Route::post('/tambah_mahasiswa','simpan_tambah_mahasiswa');
-    Route::get('/edit_mahasiswa/{id}','edit_mahasiswa');
-    Route::put('/update_mahasiswa/{id}','update_mahasiswa');
-    Route::delete('/hapus_mahasiswa/{id}','hapus_mahasiswa');
-
+   
     Route::get('/daftar_tutor', 'daftar_tutor')->middleware('auth');
     Route::get('/detail_tutor/{id}', 'detail_tutor' );
 });

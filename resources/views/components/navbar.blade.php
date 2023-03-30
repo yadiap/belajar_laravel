@@ -16,7 +16,7 @@
                         <a class="nav-link {{$title === 'About' ? 'active' : ''}}" aria-current="page" href="/about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{$title === 'Data Mahasiswa' ? 'active' : ''}}" aria-current="page" href="/daftar_mahasiswa">Data Mahasiswa</a>
+                        <a class="nav-link {{$title === 'Data Mahasiswa' ? 'active' : ''}}" aria-current="page" href="/mahasiswa">Data Mahasiswa</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{$title === 'Data Tutor' ? 'active' : ''}}" aria-current="page" href="/daftar_tutor">Data Tutor</a>
