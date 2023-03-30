@@ -21,7 +21,7 @@
                 <td>{{ $data['nim'] }}</td>
                 <td>
                     <x-button-link url="/detail_mahasiswa/{{$data['id']}}" text="Detail" color="secondary" />
-                    <x-button-link url="/tambah_mahasiswa" text="Edit" color="secondary" />
+                    <x-button-link url="/edit_mahasiswa/{{$data['id']}}" text="Edit" color="warning" />
                     <x-button-link url="/hapus_mahasiswa" text="Hapus" color="danger" />
                 </td>
             </tr>

@@ -26,6 +26,10 @@ Route::controller(HomeController::class)->group(function (){
     Route::get('/detail_mahasiswa/{id}','detail_mahasiswa');
     Route::get('/tambah_mahasiswa','tambah_mahasiswa');
     Route::post('/tambah_mahasiswa','simpan_tambah_mahasiswa');
+
+    Route::get('/edit_mahasiswa/{id}','edit_mahasiswa');
+    Route::put('/update_mahasiswa/{id}','update_mahasiswa');
+
     Route::get('/daftar_tutor', 'daftar_tutor')->middleware('auth');
     Route::get('/detail_tutor/{id}', 'detail_tutor' );
 });

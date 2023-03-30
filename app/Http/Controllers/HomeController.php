@@ -34,12 +34,14 @@ class HomeController extends Controller
             'data_mahasiswa' => Mahasiswa::find($request->id),
         ]);
     }
+
     public function tambah_mahasiswa(Request $request)
     {
         return view('home.form_mahasiswa', [
             'title' => 'Edit Mahasiswa',
         ]);
     }
+
     public function simpan_tambah_mahasiswa(Request $request)
     {
         // dd($request->all());
@@ -60,6 +62,29 @@ class HomeController extends Controller
         ]);
 
         Mahasiswa::create($validateData);
+
+        return redirect('/daftar_mahasiswa');
+    }
+
+    public function edit_mahasiswa(Request $request)
+    {
+        return view('home.form_edit_mahasiswa', [
+            'title' => 'Edit Mahasiswa',
+            'data' => Mahasiswa::find($request->id)
+        ]);
+    }
+
+    public function update_mahasiswa(Request $request, $id)
+    {
+        // dd($request);
+        $data = Mahasiswa::find($id);
+        $data->nama = $request->input('nama');
+        $data->nim = $request->input('nim');
+        $data->gender = $request->input('gender');
+        $data->nilai = $request->input('nilai');
+        $data->usia = $request->input('usia');
+        $data->alamat = $request->input('alamat');
+        $data->update();
 
         return redirect('/daftar_mahasiswa');
     }
