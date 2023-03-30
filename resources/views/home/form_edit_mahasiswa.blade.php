@@ -42,9 +42,8 @@
     </div>
     <div class="col">
       <select id="gender"class="form-select @error ('gender') is-invalid @enderror" aria-label="Default select example" name="gender">
-        <option disable selected>{{ old('gender', $data['gender']) }}</option>
-        <option value="0" selected >Laki-laki</option>
-        <option value="1">Perempuan</option>
+        <option value="0" @if ($data['gender'] == "0") selected @endif>Laki-laki</option>
+        <option value="1" @if ($data['gender'] == "1") selected @endif>Perempuan</option>
       </select>
       @error('gender')
       <div id="validationServer03Feedback" class="invalid-feedback">
