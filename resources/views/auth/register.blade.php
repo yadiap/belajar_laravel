@@ -81,8 +81,8 @@
   <h1 class="h3 mb-3 fw-normal">Register account</h1>
 
   <div class="form-floating">
-    <input type="text" class="form-control @error ('nama') is-invalid @enderror" id="nama" placeholder="Masukkan nama anda" name="name" value="{{old('name')}}">
-    <label for="nama">  Nama @error ('nama') {{ $message }} @enderror </label>
+    <input type="text" class="form-control @error ('name') is-invalid @enderror" id="nama" placeholder="Masukkan nama anda" name="name" value="{{old('name')}}">
+    <label for="nama">  Nama @error ('name') {{ $message }} @enderror </label>
   </div>
   <div class="form-floating">
     <input type="email" class="form-control @error ('email') is-invalid @enderror" id="email" placeholder="Masukkan email anda : name@example.com" name="email" value="{{ old('email') }}">

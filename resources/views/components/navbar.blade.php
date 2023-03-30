@@ -23,18 +23,28 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav  mb-2 mb-lg-0">
+
+                    @auth
                     <li class="nav-item">
-                        <a class="btn nav-link {{$title === 'Register' ? 'active' : ''}}" aria-current="page" href="/register">Register</a>
+                        <a class="nav-link">{{ Auth::user()->name }}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="btn nav-link {{$title === 'Login' ? 'active' : ''}}" aria-current="page" href="/login">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <form action="/logout" method="POST"> 
-                            @csrf
-                            <x-button type="submit" text="Logout"/>
-                        </form>
-                    </li>
+                        <li class="nav-item">
+                            
+                            <form action="/logout" method="POST"> 
+                                @csrf
+                                <x-button type="submit" text="Logout"/>
+                            </form>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="btn nav-link {{$title === 'Login' ? 'active' : ''}}" aria-current="page" href="/login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn nav-link {{$title === 'Register' ? 'active' : ''}}" aria-current="page" href="/register">Register</a>
+                        </li>
+                    @endauth
+
+                 
                 </ul>
             </div>
         </div>

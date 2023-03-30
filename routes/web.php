@@ -20,13 +20,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
 Route::controller(HomeController::class)->group(function (){
-    Route::get('/home','index');
+    Route::get('/home','index')->middleware('auth');
     Route::get('/daftar_mahasiswa', 'daftar_mahasiswa');
     Route::get('/detail_mahasiswa/{id}','detail_mahasiswa' );
-    Route::get('/daftar_tutor', 'daftar_tutor' );
+    Route::get('/daftar_tutor', 'daftar_tutor')->middleware('auth');
     Route::get('/detail_tutor/{id}', 'detail_tutor' );
 });
 
@@ -34,9 +32,9 @@ Route::controller(HomeController::class)->group(function (){
 Route::get('/about', [AboutController::class, 'index']);
 
 Route::controller(AuthController::class)->group(function (){
-    Route::get('/login',  'indexLogin');
-    Route::post('/login',  'storeLogin');
-    Route::post('/logout',  'storeLogout');
-    Route::get('/register','indexRegister');
-    Route::post('/register',  'storeRegister');
+    Route::get('/login', 'indexLogin')->middleware('guest')->name('login');
+    Route::post('/login', 'storeLogin');
+    Route::post('/logout', 'storeLogout');
+    Route::get('/register','indexRegister')->middleware('guest');
+    Route::post('/register', 'storeRegister');
 });
