@@ -58,10 +58,11 @@ class MahasiswaController extends Controller
 
     public function destroy($mahasiswa)
     {
-        $data = Mahasiswa::find($mahasiswa);  
-        $data->delete();
+        // $data = Mahasiswa::find($mahasiswa);  
+        // $data->delete();
+        Mahasiswa::destroy($mahasiswa);
 
-        return redirect('/mahasiswa');
+        return redirect('/mahasiswa')->with('info', 'Anda telah berhasil menghapus data');
     }
 
     private function validate_data(Request $request)
