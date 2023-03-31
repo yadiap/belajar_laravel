@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('mahasiswa', MahasiswaController::class)->middleware('auth');
+Route::resource('mahasiswa', MahasiswaController::class)->middleware(['auth', 'admin']);
 
 Route::controller(HomeController::class)->group(function (){
     Route::get('/home','index');
