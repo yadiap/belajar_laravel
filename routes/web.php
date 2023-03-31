@@ -26,7 +26,7 @@ Route::resource('mahasiswa', MahasiswaController::class)->middleware(['auth', 'a
 Route::controller(HomeController::class)->group(function (){
     Route::get('/home','index');
    
-    Route::get('/daftar_tutor', 'daftar_tutor')->middleware('auth');
+    Route::get('/daftar_tutor', 'daftar_tutor');
     Route::get('/detail_tutor/{id}', 'detail_tutor' );
 });
 
