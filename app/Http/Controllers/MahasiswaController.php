@@ -31,21 +31,7 @@ class MahasiswaController extends Controller
 
     public function store(Request $request)
     {
-        $validateData = $request->validate([
-            'nama' => 'required',
-            'nim' => 'required',
-            'gender' => 'required',
-            'nilai' => 'required',
-            'usia' => 'required',
-            'alamat' => 'required',
-        ], [
-            'nama.required' => 'tidak boleh kosong',
-            'nim.required' => 'tidak boleh kosong',
-            'gender.required' => 'tidak boleh kosong',
-            'nilai.required' => 'tidak boleh kosong',
-            'usia.required' => 'tidak boleh kosong',
-            'alamat.required' => 'tidak boleh kosong',
-        ]);
+        $validateData = $this->validate_data($request);
 
         Mahasiswa::create($validateData);
 
@@ -62,15 +48,10 @@ class MahasiswaController extends Controller
 
     public function update(Request $request, $id)
     {
-        // dd($request);
-        $data = Mahasiswa::find($id);
-        $data->nama = $request->input('nama');
-        $data->nim = $request->input('nim');
-        $data->gender = $request->input('gender');
-        $data->nilai = $request->input('nilai');
-        $data->usia = $request->input('usia');
-        $data->alamat = $request->input('alamat');
-        $data->update();
+        
+        $validateData = $this->validate_data($request);
+            
+        Mahasiswa::find($id)->update($validateData);
 
         return redirect('/mahasiswa');
     }
@@ -81,5 +62,26 @@ class MahasiswaController extends Controller
         $data->delete();
 
         return redirect('/mahasiswa');
+    }
+
+    private function validate_data(Request $request)
+    {
+        $validateData = $request->validate([
+            'nama' => 'required',
+            'nim' => 'required',
+            'gender' => 'required',
+            'nilai' => 'required|integer',
+            'usia' => 'required|integer',
+            'alamat' => 'required',
+        ], [
+            'nama.required' => 'tidak boleh kosong',
+            'nim.required' => 'tidak boleh kosong',
+            'gender.required' => 'tidak boleh kosong',
+            'nilai.required' => 'tidak boleh kosong',
+            'usia.required' => 'tidak boleh kosong',
+            'alamat.required' => 'tidak boleh kosong',
+        ]);
+        
+        return $validateData;
     }
 }
