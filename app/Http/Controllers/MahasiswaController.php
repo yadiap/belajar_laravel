@@ -11,7 +11,7 @@ class MahasiswaController extends Controller
     {
         return view('mahasiswa.index', [
             'title' => 'Daftar Mahasiswa',
-            'daftar_mahasiswa' => Mahasiswa::all(),
+            'daftar_mahasiswa' => Mahasiswa::paginate(5),
         ]);
     }
     public function show(Request $request)
