@@ -53,7 +53,7 @@ class MahasiswaController extends Controller
             
         Mahasiswa::find($id)->update($validateData);
 
-        return redirect('/mahasiswa');
+        return redirect('/mahasiswa')->with('success', 'Anda telah berhasil merubah data');
     }
 
     public function destroy($mahasiswa)

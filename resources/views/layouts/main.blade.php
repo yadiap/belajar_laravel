@@ -19,6 +19,7 @@
   </header>
   <main>
     <div class="container mt-4">
+      <x-alert />
       @yield('content')
     </div>
   </main>
