@@ -23,7 +23,7 @@ class HomeController extends Controller
 
     public function daftar_tutor()
     {
-        if(!Gate::allows('isTutor')) {
+        if(!Gate::any(['isTutor', 'isAdmin'])) {
             abort(403);
         }
         return view('home.daftar_tutor', [
@@ -34,6 +34,9 @@ class HomeController extends Controller
 
     public function detail_tutor(Request $request)
     {
+        if(!Gate::allows(['isTutor'])) {
+            abort(403);
+        }
         return view('home.detail_tutor', [
             'title' => 'Detail Tutor',
             'data' => Tutor::find($request->id),
