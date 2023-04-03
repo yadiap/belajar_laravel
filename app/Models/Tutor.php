@@ -10,10 +10,9 @@ class Tutor extends Model
     use HasFactory;
     protected $fillable = [
         'nama',
-        'nim',
-        'nilai',
-        'alamat',
+        'kode_tutor',
         'gender',
-        'usia',
+        'email',
+        'bidang',
     ];
 }
