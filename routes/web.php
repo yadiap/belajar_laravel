@@ -26,12 +26,8 @@ Route::resource('mahasiswa', MahasiswaController::class);
 Route::resource('tutor', TutorController::class);
 
 Route::controller(HomeController::class)->group(function (){
-    Route::get('/home','index');
-   
-    Route::get('/daftar_tutor', 'daftar_tutor');
-    Route::get('/detail_tutor/{id}', 'detail_tutor' );
+    Route::get('/home','index');   
 });
-
 
 Route::get('/about', [AboutController::class, 'index']);
 

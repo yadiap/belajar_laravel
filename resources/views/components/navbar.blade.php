@@ -22,7 +22,7 @@
                     @endcanany
                     @canany(['isTutor', 'isAdmin'])
                         <li class="nav-item">
-                            <a class="nav-link {{$title === 'Data Tutor' ? 'active' : ''}}" aria-current="page" href="/daftar_tutor">Data Tutor</a>
+                            <a class="nav-link {{$title === 'Data Tutor' ? 'active' : ''}}" aria-current="page" href="/tutor">Data Tutor</a>
                         </li>
                     @endcanany
                 </ul>
