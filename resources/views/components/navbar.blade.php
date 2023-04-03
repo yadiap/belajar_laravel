@@ -17,12 +17,12 @@
                     </li>
                     @canany(['isMahasiswa', 'isAdmin'])
                         <li class="nav-item">
-                            <a class="nav-link {{$title === 'Data Mahasiswa' ? 'active' : ''}}" aria-current="page" href="/mahasiswa">Data Mahasiswa</a>
+                            <a class="nav-link {{$title === 'Daftar Mahasiswa' ? 'active' : ''}}" aria-current="page" href="/mahasiswa">Data Mahasiswa</a>
                         </li>
                     @endcanany
                     @canany(['isTutor', 'isAdmin'])
                         <li class="nav-item">
-                            <a class="nav-link {{$title === 'Data Tutor' ? 'active' : ''}}" aria-current="page" href="/tutor">Data Tutor</a>
+                            <a class="nav-link {{$title === 'Daftar Tutor' ? 'active' : ''}}" aria-current="page" href="/tutor">Data Tutor</a>
                         </li>
                     @endcanany
                 </ul>
