@@ -59,7 +59,7 @@
     </div>
     <div class="col">
       <input type="input" class="form-control @error ('nilai') is-invalid @enderror" name="nilai" value={{ old('nilai', $data['nilai']) }}>
-      @error('gender')
+      @error('nilai')
       <div id="validationServer03Feedback" class="invalid-feedback">
         {{ $message }}.
       </div>
