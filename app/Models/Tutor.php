@@ -15,4 +15,9 @@ class Tutor extends Model
         'email',
         'bidang',
     ];
+
+    public function mata_kuliah()
+    {
+        return $this->belongsTo(MataKuliah::class);
+    }
 }

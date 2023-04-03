@@ -22,6 +22,7 @@ class TutorSeeder extends Seeder
                 'gender' => 'Laki-laki',
                 'email' => 'musiranp@ecampus.ut.ac.id',
                 'bidang' => 'Bahasa Indonesia',
+                'mata_kuliah_id' => 1,
             ],
             [
                 'nama' => 'Kus Anjarwati ',
@@ -29,6 +30,8 @@ class TutorSeeder extends Seeder
                 'gender' => 'Perempuan',
                 'email' => 'kus@ecampus.ut.ac.id',
                 'bidang' => 'Pancasila',
+                'mata_kuliah_id' => 1,
+
             ],
             [
                 'nama' => 'Martono',
@@ -36,6 +39,8 @@ class TutorSeeder extends Seeder
                 'gender' => 'Laki-laki',
                 'email' => 'martono@ecampus.ut.ac.id',
                 'bidang' => 'PPKN',
+                'mata_kuliah_id' => 1,
+
             ],
             [
                 'nama' => 'Dyah Paminta',
@@ -43,6 +48,8 @@ class TutorSeeder extends Seeder
                 'gender' => 'Perempuan',
                 'email' => 'dyahp@ecampus.ut.ac.id',
                 'bidang' => 'Matematika',
+                'mata_kuliah_id' => 1,
+
             ],
             [
                 'nama' => 'Wartomo',
@@ -50,6 +57,7 @@ class TutorSeeder extends Seeder
                 'gender' => 'Laki-laki',
                 'email' => 'wartomo@ecampus.ut.ac.id',
                 'bidang' => 'IPS',
+                'mata_kuliah_id' => 1,
             ],
     ]);
     }

@@ -5,6 +5,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\TutorController;
+use App\Models\Mahasiswa;
+use App\Models\MataKuliah;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,4 +39,11 @@ Route::controller(AuthController::class)->group(function (){
     Route::post('/logout', 'storeLogout');
     Route::get('/register','indexRegister')->middleware('guest');
     Route::post('/register', 'storeRegister');
+});
+
+Route::get('/mata-kuliah/detail/{matakuliah}', function (MataKuliah $matakuliah) {
+    return view('detail-matakuliah', [
+        'title' => 'Data Mata Kuliah',
+        'data' => $matakuliah,
+    ]);
 });

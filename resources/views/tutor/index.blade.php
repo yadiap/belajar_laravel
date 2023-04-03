@@ -11,6 +11,7 @@
             <th scope="col">Nama</th>
             <th scope="col">Kode Tutor</th>
             <th scope="col">Email</th>
+            <th scope="col">Mata Kuliah</th>
             <th scope="col">Action</th>
         </tr>
     </thead>
@@ -21,6 +22,9 @@
                 <td>{{ $data['nama'] }}</td>
                 <td>{{ $data['kode_tutor'] }}</td>
                 <td>{{ $data['email'] }}</td>
+                <td>
+                     <a href="/mata-kuliah/detail/{{ $data->mata_kuliah->id }}"> {{ $data->mata_kuliah->nama }}</a>   
+                </td>
                 <td>
                     <x-button-link url="/tutor/{{$data['id']}}" text="Detail" color="secondary" />
                     <x-button-link url="/tutor/{{$data['id']}}/edit" text="Edit" color="warning" />
