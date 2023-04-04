@@ -20,4 +20,8 @@ class Tutor extends Model
     {
         return $this->belongsTo(MataKuliah::class);
     }
+    public function mata_kuliahs()
+    {
+        return $this->belongsToMany(MataKuliah::class);
+    }
 }
