@@ -15,6 +15,6 @@ class MataKuliah extends Model
     }
     public function tutors()
     {
-        return $this->belongsToMany(Tutor::class);
+        return $this->belongsToMany(Tutor::class, 'mata_kuliah_tutors');
     }
 }

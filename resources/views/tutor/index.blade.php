@@ -7,12 +7,12 @@
   <table class="table">
     <thead>
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nama</th>
-            <th scope="col">Kode Tutor</th>
-            <th scope="col">Email</th>
-            <th scope="col">Mata Kuliah</th>
-            <th scope="col">Action</th>
+            <th class="col">#</th>
+            <th class="col">Nama</th>
+            <th class="col">Kode Tutor</th>
+            <th class="col">Email</th>
+            <th class="col-3">Mata Kuliah</th>
+            <th class="col">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -23,7 +23,9 @@
                 <td>{{ $data['kode_tutor'] }}</td>
                 <td>{{ $data['email'] }}</td>
                 <td>
-                     <a href="/mata-kuliah/detail/{{ $data->mata_kuliah->id }}"> {{ $data->mata_kuliah->nama }}</a>   
+                    @foreach ($data->mata_kuliahs as $mata_kuliah)
+                    <a href="/mata-kuliah/detail/{{ $mata_kuliah->id }}"> {{ $mata_kuliah->nama }}</a>   
+                    @endforeach
                 </td>
                 <td>
                     <x-button-link url="/tutor/{{$data['id']}}" text="Detail" color="secondary" />

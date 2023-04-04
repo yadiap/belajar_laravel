@@ -43,6 +43,20 @@
     {{ $data['bidang'] }}
   </div>
 </div>
+<div class="row">
+  <div class="col-2">
+    Mata Kuliah
+  </div>
+  <div class="col">
+    <ol>
+      @foreach ($data->mata_kuliahs as $mata_kuliah)        
+        <li>
+          {{ $mata_kuliah->nama }}
+        </li>
+      @endforeach
+    </ol>
+  </div>
+</div>
 <div class="mt-2">
   <x-button-link url='/tutor' text="Kembali ke daftar" />
 </div>
