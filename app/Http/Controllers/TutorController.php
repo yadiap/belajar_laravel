@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MataKuliah;
 use Illuminate\Http\Request;
 use App\Models\Tutor;
 
@@ -25,15 +26,18 @@ class TutorController extends Controller
     public function create(Request $request)
     {
         return view('tutor.create', [
-            'title' => 'Edit Tutor',
+            'title' => 'Tambah Tutor',
+            'data_mata_kuliah' => MataKuliah::all(),
         ]);
     }
 
     public function store(Request $request)
     {
         $validateData = $this->validate_data($request);
-
-        Tutor::create($validateData);
+        // $validateData = 1;
+        $tutor = Tutor::create($validateData);
+        // SAve Multiple Mata Kuliah By Tutor Id
+        $tutor->mata_kuliahs()->attach($validateData['mata_kuliah']);
 
         return redirect('/tutor');
     }
@@ -42,7 +46,8 @@ class TutorController extends Controller
     {
         return view('tutor.edit', [
             'title' => 'Edit Tutor',
-            'data' => Tutor::find($request->tutor)
+            'data' => Tutor::find($request->tutor),
+            'data_mata_kuliah' => MataKuliah::all(),
         ]);
     }
 
@@ -51,7 +56,13 @@ class TutorController extends Controller
         
         $validateData = $this->validate_data($request);
             
-        Tutor::find($id)->update($validateData);
+        $tutor = Tutor::find($id);
+        
+        $update = $tutor->update($validateData);
+
+        if ($update) {
+            $tutor->mata_kuliahs()->sync($validateData['mata_kuliah']);
+        }
 
         return redirect('/tutor')->with('success', 'Anda telah berhasil merubah data');
     }
@@ -73,6 +84,7 @@ class TutorController extends Controller
             'gender' => 'required',
             'email' => 'required',
             'bidang' => 'required',
+            'mata_kuliah' => 'required|max:4|min:1',
         ], [
             'nama.required' => 'tidak boleh kosong',
             'kode_tutor.required' => 'tidak boleh kosong',
@@ -81,6 +93,7 @@ class TutorController extends Controller
             'bidang.required' => 'tidak boleh kosong',
         ]);
         
+        $validateData['mata_kuliah_id'] = 1;
         return $validateData;
     }
 }

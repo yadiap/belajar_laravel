@@ -81,6 +81,28 @@
     </div>
   </div>
 
+  <div class="row mb-3">
+    <div class="col-3">
+      <label class="form-label">Mata Kuliah yang diampu</label>
+    </div>
+    <div class="col">
+      <select 
+        id="mata_kuliah"
+        class="form-select @error ('mata_kuliah') is-invalid @enderror" 
+        name="mata_kuliah[]"
+        multiple
+      >
+        @foreach ($data_mata_kuliah as $mata_kuliah)
+          <option value="{{ $mata_kuliah->id }}">{{ $mata_kuliah->nama }}</option>
+        @endforeach
+      </select>
+      @error('mata_kuliah')
+      <div id="validationServer03Feedback" class="invalid-feedback">
+        {{ $message }}.
+      </div>
+      @enderror
+    </div>
+  </div>
   <div class="mt-2">
     <x-button type="submit" text="Tambah" />
   </div>

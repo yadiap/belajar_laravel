@@ -8,13 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Tutor extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'nama',
-        'kode_tutor',
-        'gender',
-        'email',
-        'bidang',
-    ];
+    // protected $fillable = [
+        // 'nama',
+        // 'kode_tutor',
+        // 'gender',
+        // 'email',
+        // 'bidang',
+        // ];
+
+    protected $guarded = ['id'];
+
+    
+
 
     public function mata_kuliah()
     {
